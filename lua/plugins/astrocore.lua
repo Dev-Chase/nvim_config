@@ -47,8 +47,9 @@ return {
     mappings = {
       -- first key is the mode
       n = {
-        -- second key is the lefthand side of the map
-
+        -- Utility Mappings
+        ["<M-k>"] = {"dd2kp", desc = "Move Line Upwards"},
+        ["<M-j>"] = {"ddp", desc = "Move Line Downwards"},
 
         -- mappings seen under group name "Tab"
         ["<Leader>Tn"] = {"<cmd>tabnew<cr>", desc = "New Tab"},
