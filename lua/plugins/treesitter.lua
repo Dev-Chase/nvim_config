@@ -15,8 +15,8 @@ return {
       "cpp",
       "json",
       "bash",
-      "make"
-      -- add more arguments for adding more treesitter parsers
+      "make",
+      "rust",
     })
   end,
 }

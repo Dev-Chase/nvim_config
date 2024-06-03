@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Mason plugins
 
 ---@type LazySpec
@@ -14,7 +12,7 @@ return {
         "lua_ls",
         "pyright",
         "clangd",
-        -- add more arguments for adding more language servers
+        "rust_analyzer",
       })
       -- opts.auto_installation = true
     end,
