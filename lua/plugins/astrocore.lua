@@ -52,18 +52,23 @@ return {
         ["<M-j>"] = {"ddp", desc = "Move Line Downwards"},
 
         -- mappings seen under group name "Tab"
+        ["<Leader>T"] = { desc = "Tabs" },
         ["<Leader>Tn"] = {"<cmd>tabnew<cr>", desc = "New Tab"},
         ["<Leader>Tc"] = {"<cmd>tabclose<cr>", desc = "Close Tab"},
         ["<Leader>Te"] = {":tcd", desc = "Change Tab Directory"},
 
         -- mappings seen under group name "TodoTelescope"
+        ["<Leader>s"] = { desc = "Search" },
         ["<Leader>ft"] = {"<cmd>TodoTelescope<cr>", desc = "Find TODO's"},
         ["<Leader>st"] = {"<cmd>TodoTelescope<cr>", desc = "Find TODO's"},
 
         -- mappings seen under group name "Treesitter-Context"
         ["[c"] = {function() require("treesitter-context").go_to_context() end, desc = "Go to context"},
 
-        -- mappings seen under group name "Treesitter-Context"
+        -- mappings seen under group name "Make"
+        ["<Leader>k"] = {desc = "Make"},
+        ["<Leader>kr"] = {":make run<cr>", desc="Run with Make"},
+        ["<Leader>kb"] = {":make<cr>", desc = "Make"},
         ["<MS-b>"] = {"<cmd>:make run<cr>", desc = "Run with Make"},
         ["<MS-v>"] = {"<cmd>:make<cr>", desc = "Make"},
 
@@ -101,12 +106,6 @@ return {
 
         -- General Mappings
         ["<C-s>"] = {":w!<cr>", desc = "Save File" },
-
-        -- tables with just a `desc` key will be registered with which-key if it's installed
-        -- this is useful for naming menus
-        ["<Leader>T"] = { desc = "Tabs" },
-        ["<Leader>s"] = { desc = "Search" },
-        -- ["<Leader>b"] = { desc = "Buffers" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
