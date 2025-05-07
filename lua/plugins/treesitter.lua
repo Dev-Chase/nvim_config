@@ -17,6 +17,7 @@ return {
       "bash",
       "make",
       "rust",
+      "ruby",
     })
   end,
 }

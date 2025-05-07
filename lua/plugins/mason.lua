@@ -4,6 +4,11 @@
 return {
   -- use mason-lspconfig to configure LSP installations
   {
+    "williamboman/mason.nvim",
+    build = ":MasonUpdate",
+    config = function() require("mason").setup() end,
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
     -- overrides `require("mason-lspconfig").setup(...)`
     opts = function(_, opts)

@@ -33,8 +33,8 @@ return {
         signcolumn = "auto", -- sets vim.opt.signcolumn to yes
         wrap = true, -- sets vim.opt.wrap
         expandtab = false,
-        autoindent = true,
-        -- cindent = true,
+        tabstop = 2,
+        shiftwidth = 2,
       },
       g = { -- vim.g.<key>
         -- configure global vim variables (vim.g)
@@ -48,37 +48,42 @@ return {
       -- first key is the mode
       n = {
         -- Utility Mappings
-        ["<M-k>"] = {"dd2kp", desc = "Move Line Upwards"},
-        ["<M-j>"] = {"ddp", desc = "Move Line Downwards"},
+        ["<M-k>"] = { "dd2kp", desc = "Move Line Upwards" },
+        ["<M-j>"] = { "ddp", desc = "Move Line Downwards" },
 
         -- mappings seen under group name "Tab"
         ["<Leader>T"] = { desc = "Tabs" },
-        ["<Leader>Tn"] = {"<cmd>tabnew<cr>", desc = "New Tab"},
-        ["<Leader>Tc"] = {"<cmd>tabclose<cr>", desc = "Close Tab"},
-        ["<Leader>Te"] = {":tcd", desc = "Change Tab Directory"},
+        ["<Leader>Tn"] = { "<cmd>tabnew<cr>", desc = "New Tab" },
+        ["<Leader>Tc"] = { "<cmd>tabclose<cr>", desc = "Close Tab" },
+        ["<Leader>Te"] = { ":tcd", desc = "Change Tab Directory" },
 
         -- mappings seen under group name "TodoTelescope"
         ["<Leader>s"] = { desc = "Search" },
-        ["<Leader>ft"] = {"<cmd>TodoTelescope<cr>", desc = "Find TODO's"},
-        ["<Leader>st"] = {"<cmd>TodoTelescope<cr>", desc = "Find TODO's"},
+        ["<Leader>ft"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODO's" },
+        ["<Leader>st"] = { "<cmd>TodoTelescope<cr>", desc = "Find TODO's" },
 
         -- mappings seen under group name "Treesitter-Context"
-        ["[c"] = {function() require("treesitter-context").go_to_context() end, desc = "Go to context"},
+        ["[c"] = { function() require("treesitter-context").go_to_context() end, desc = "Go to context" },
 
         -- mappings seen under group name "Make"
-        ["<Leader>k"] = {desc = "Make"},
-        ["<Leader>kr"] = {":make run<cr>", desc="Run with Make"},
-        ["<Leader>kb"] = {":make<cr>", desc = "Make"},
-        ["<MS-b>"] = {"<cmd>:make run<cr>", desc = "Run with Make"},
-        ["<MS-v>"] = {"<cmd>:make<cr>", desc = "Make"},
+        ["<Leader>k"] = { desc = "Make" },
+        ["<Leader>kr"] = { ":make run<cr>", desc = "Make Run" },
+        ["<Leader>ke"] = { "<cmd>:make exec<cr>", desc = "Make Exec" },
+        ["<Leader>kc"] = { "<cmd>:make clean<cr>", desc = "Make Clean" },
+        ["<Leader>kb"] = { ":make<cr>", desc = "Make" },
+        ["<MS-b>"] = { "<cmd>:make run<cr>", desc = "Make Run" },
+        ["<MS-e>"] = { "<cmd>:make exec<cr>", desc = "Make Exec" },
+        ["<MS-v>"] = { "<cmd>:make<cr>", desc = "Make" },
+        ["<MS-c>"] = { "<cmd>:make clean<cr>", desc = "Make Clean" },
 
         -- mappings seen under group name "Arduino Vim"
-        ["<C-a>v"] = { "<cmd>ArduinoVerify<cr>"},
-        ["<C-a>u"] = { "<cmd>ArduinoUpload<cr>"},
-        ["<C-a>s"] = { "<cmd>ArduinoSerial<cr>"},
-        ["<C-a>b"] = { "<cmd>ArduinoChooseBoard<cr>"},
-        ["<C-a>p"] = { "<cmd>ArduinoChooseProgrammer<cr>"},
-        ["<C-a>a"] = { "<cmd>ArduinoAttach<cr>"},
+        -- ["<Leader>A"] = { desc = "Arduino" },
+        -- ["<Leader>av"] = { "<cmd>ArduinoVerify<cr>" },
+        -- ["<Leader>au"] = { "<cmd>ArduinoUpload<cr>" },
+        -- ["<Leader>as"] = { "<cmd>ArduinoSerial<cr>" },
+        -- ["<Leader>ab"] = { "<cmd>ArduinoChooseBoard<cr>" },
+        -- ["<Leader>ap"] = { "<cmd>ArduinoChooseProgrammer<cr>" },
+        -- ["<Leader>aa"] = { "<cmd>ArduinoAttach<cr>" },
 
         -- navigate buffer tabs
         ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
@@ -95,33 +100,33 @@ return {
         },
 
         -- window resizing mappings
-        ["<C-=>"] = {"<cmd>resize+2<cr>", desc = "Resize Horizontal +"},
-        ["<C-_>"] = {"<cmd>resize-2<cr>", desc = "Resize Horizontal -"},
-        ["<M-=>"] = {"<cmd>vertical resize+2<cr>", desc = "Resize Horizontal +"},
-        ["<M-->"] = {"<cmd>vertical resize-2<cr>", desc = "Resize Horizontal -"},
+        ["<C-=>"] = { "<cmd>resize+2<cr>", desc = "Resize Horizontal +" },
+        ["<C-_>"] = { "<cmd>resize-2<cr>", desc = "Resize Horizontal -" },
+        ["<M-=>"] = { "<cmd>vertical resize+2<cr>", desc = "Resize Horizontal +" },
+        ["<M-->"] = { "<cmd>vertical resize-2<cr>", desc = "Resize Horizontal -" },
 
         -- mappings seen under group name "ToggleTerm"
-        ["<Leader>tT"] = {"<cmd>ToggleTerm direction=tab<cr>", desc = "ToggleTerm Tab" },
-        ["<M-'>"] = {"<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
+        ["<Leader>tT"] = { "<cmd>ToggleTerm direction=tab<cr>", desc = "ToggleTerm Tab" },
+        ["<M-'>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
 
         -- General Mappings
-        ["<C-s>"] = {":w!<cr>", desc = "Save File" },
+        ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
 
         -- setting a mapping to false will disable it
         -- ["<C-S>"] = false,
       },
       t = {
         -- window resizing mappings
-        ["<C-=>"] = {"<cmd>resize+2<cr>", desc = "Resize Horizontal +"},
-        ["<C-_>"] = {"<cmd>resize-2<cr>", desc = "Resize Horizontal -"},
-        ["<M-=>"] = {"<cmd>vertical resize+2<cr>", desc = "Resize Horizontal +"},
-        ["<M-->"] = {"<cmd>vertical resize-2<cr>", desc = "Resize Horizontal -"},
+        ["<C-=>"] = { "<cmd>resize+2<cr>", desc = "Resize Horizontal +" },
+        ["<C-_>"] = { "<cmd>resize-2<cr>", desc = "Resize Horizontal -" },
+        ["<M-=>"] = { "<cmd>vertical resize+2<cr>", desc = "Resize Horizontal +" },
+        ["<M-->"] = { "<cmd>vertical resize-2<cr>", desc = "Resize Horizontal -" },
 
         -- tab mappings
-        ["<C-h>"] = {function() vim.cmd.tabprevious() end, desc = "Switch Tab"},
+        ["<C-h>"] = { function() vim.cmd.tabprevious() end, desc = "Switch Tab" },
 
         -- ToggleTerm
-        ["<M-'>"] = {"<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
+        ["<M-'>"] = { "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
       },
     },
   },
