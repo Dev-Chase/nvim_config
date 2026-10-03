@@ -1,0 +1,11 @@
+# macOS
+.DSSTORE
+
+# Neovim generated/session files
+*.log
+*.swp
+*.swo
+*.tmp
+
+# Local/state files
+.local/
